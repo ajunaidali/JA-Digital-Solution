@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr_0.7fr_1fr]">
           <div>
-            <img src={assets.branding.logoDark} alt="JA Digital Solver logo" className="h-12 w-auto" />
+            <img src={assets.branding.logoPrimarySvg} alt="JA Digital Solver temporary text logo" className="h-12 w-auto" />
             <p className="mt-6 max-w-md text-sm leading-7 text-slate-300">
               Turning ideas into digital experiences with strategy, design, development and growth systems built for modern businesses.
             </p>

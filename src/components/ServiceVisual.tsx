@@ -1,5 +1,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
+import { assets } from '../config/assets';
+import VideoPreview from './VideoPreview';
 
 type ServiceVisualProps = {
   index: number;
@@ -54,6 +56,7 @@ export default function ServiceVisual({ index, title }: ServiceVisualProps) {
       )}
       {index === 3 && (
         <div className="visual-edit">
+          <VideoPreview poster={assets.services.videoEditing} label="Video editing concept preview" className="visual-edit-video" />
           <div className="visual-edit-frame"><i /><b>FRAME<br />IN MOTION</b></div>
           <div className="visual-edit-play" aria-hidden="true" />
           <div className="visual-edit-timeline"><i /><i /><i /><i /><i /><i /></div>

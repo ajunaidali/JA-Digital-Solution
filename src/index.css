@@ -646,6 +646,35 @@ select {
   inset: 3% 0;
 }
 
+.video-preview {
+  position: relative;
+  overflow: hidden;
+  background: #08152d;
+}
+
+.video-preview-poster,
+.video-preview-source {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-preview-source {
+  opacity: 0;
+  transition: opacity .4s ease;
+}
+
+.video-preview-ready { opacity: 1; }
+
+.visual-edit-video {
+  position: absolute;
+  inset: 2% 12%;
+  border: 1px solid rgba(227,247,255,.25);
+  opacity: .46;
+}
+
 .visual-edit-frame {
   position: absolute;
   top: 2%;
@@ -657,8 +686,8 @@ select {
   overflow: hidden;
   border: 1px solid rgba(227,247,255,.52);
   background:
-    radial-gradient(circle at 72% 33%, rgba(69,234,244,.58), transparent 25%),
-    linear-gradient(135deg, rgba(44,23,58,.92), rgba(9,22,44,.96));
+    radial-gradient(circle at 72% 33%, rgba(69,234,244,.4), transparent 25%),
+    linear-gradient(135deg, rgba(44,23,58,.78), rgba(9,22,44,.82));
   box-shadow: 0 14px 40px rgba(0,0,0,.4);
   animation: frame-shift 7s ease-in-out infinite;
   animation-play-state: paused;

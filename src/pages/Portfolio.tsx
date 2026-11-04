@@ -6,6 +6,7 @@ import KineticText from '../components/KineticText';
 import Marquee from '../components/Marquee';
 import ScrollReveal from '../components/ScrollReveal';
 import SectionTitle from '../components/SectionTitle';
+import VideoPreview from '../components/VideoPreview';
 import { assets } from '../config/assets';
 import { featuredProjects } from '../data/siteData';
 
@@ -146,7 +147,11 @@ export default function PortfolioPage() {
                 transition={{ duration: reduceMotion ? 0 : 0.75, delay: reduceMotion ? 0 : index * 0.04, ease: [0.22, 1, 0.36, 1] }}
                 className={`portfolio-project-image relative block overflow-hidden border border-white/10 bg-[#09152b] ${project.link === '#' ? 'cursor-default' : ''}`}
               >
-                <img src={project.image} alt={project.title} className="aspect-[1.48/1] w-full object-cover transition duration-700 group-hover:scale-[1.04]" loading="lazy" />
+                {project.category === 'Content Production' ? (
+                  <VideoPreview poster={project.image} label={`${project.title} animated sample preview`} className="aspect-[1.48/1] w-full transition duration-700 group-hover:scale-[1.04]" />
+                ) : (
+                  <img src={project.image} alt={project.title} className="aspect-[1.48/1] w-full object-cover transition duration-700 group-hover:scale-[1.04]" loading="lazy" />
+                )}
                 <span className="portfolio-project-index">0{index + 1} / 05</span>
                 <span className="portfolio-project-arrow"><MoveUpRight size={17} /></span>
               </motion.a>

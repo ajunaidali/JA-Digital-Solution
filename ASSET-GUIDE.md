@@ -1,88 +1,63 @@
 # JA Digital Solver Asset Guide
 
-This project keeps all visual assets local inside the `public/assets` directory so the website remains portable and easy to maintain.
+All website media is stored locally under `public/assets/`. The component-facing paths are centralized in [`src/config/assets.ts`](./src/config/assets.ts); replace a file with the same filename and compatible format to update it without changing components.
 
-## Core branding
+The supplied `JA logo.pdf` is preserved as `branding/ja-logo-original.pdf`, but its page appears blank. The displayed `logo-primary` and `logo-light` files are temporary, text-based wordmarks, not extracted versions of the original logo.
 
-- `public/assets/branding/ja-logo-original.pdf` — original supplied logo file. Keep this as the reference asset.
-- `public/assets/branding/ja-logo-dark.png` — dark-background logo version. Recommended size: 1600x420 px.
-- `public/assets/branding/ja-logo-light.png` — light-background logo version. Recommended size: 1600x420 px.
-- `public/assets/branding/ja-logo.svg` — editable vector version for future refinements.
-- `public/assets/branding/favicon.png` — favicon for browser tabs. Recommended size: 256x256 px.
+## Asset inventory
 
-## Founder placeholders
+| File | Purpose and website location | Recommended replacement dimensions | Supported formats |
+|---|---|---:|---|
+| `branding/ja-logo-original.pdf` | Supplied reference logo; not displayed | Original PDF | PDF |
+| `branding/logo-primary.svg` | Navbar and footer wordmark on dark backgrounds | 680 × 150 viewBox | SVG |
+| `branding/logo-light.svg` | Wordmark for light backgrounds | 680 × 150 viewBox | SVG |
+| `branding/logo-primary.png` | Raster dark-background wordmark | 1360 × 300 px | PNG, WebP |
+| `branding/logo-light.png` | Raster light-background wordmark | 1360 × 300 px | PNG, WebP |
+| `branding/favicon.png` | Browser tab icon (`index.html`) | 256 × 256 px | PNG |
+| `founders/founder-junaid.webp` | Junaid Ali founder profile visual | 700 × 820 px | WebP, PNG, JPEG |
+| `founders/founder-umer.webp` | Umer founder profile visual | 700 × 820 px | WebP, PNG, JPEG |
+| `founders/founder-muzammil.webp` | Muzammil founder profile visual | 700 × 820 px | WebP, PNG, JPEG |
+| `hero/hero-main.webp` | Main hero artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `hero/hero-object-01.webp` | Hero strategy / floating object layer | 1200 × 700 px | WebP, PNG, JPEG |
+| `hero/hero-object-02.webp` | Hero product / floating object layer | 1200 × 700 px | WebP, PNG, JPEG |
+| `hero/hero-object-03.webp` | Hero launch / floating object layer | 1200 × 700 px | WebP, PNG, JPEG |
+| `hero/hero-texture.webp` | Hero texture and lighting layer | 1200 × 700 px | WebP, PNG, JPEG |
+| `3d/models/hero-objects.glb` | Local 3D hero geometry | Keep scene scale and origin compatible | GLB |
+| `3d/textures/cyan-grid.webp` | Three-dimensional scene surface texture | 1200 × 700 px | WebP, PNG, JPEG |
+| `3d/environments/hero-environment.webp` | Three-dimensional scene environment artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `services/service-web-development.webp` | Web development service artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `services/service-app-development.webp` | App development service artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `services/service-ui-ux-design.webp` | UI/UX service artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `services/service-graphic-design.webp` | Graphic design and branding artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `services/service-video-editing.webp` | Video editing poster and fallback | 1200 × 700 px | WebP, PNG, JPEG |
+| `services/service-digital-marketing.webp` | Digital marketing service artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `portfolio/portfolio-ahmed-engineering.webp` | Ahmed Engineering project card and mobile preview fallback | 1200 × 700 px | WebP, PNG, JPEG |
+| `portfolio/portfolio-mobile-app.webp` | Clearly labeled mobile app concept sample | 1200 × 700 px | WebP, PNG, JPEG |
+| `portfolio/portfolio-graphic-design.webp` | Clearly labeled branding concept sample | 1200 × 700 px | WebP, PNG, JPEG |
+| `portfolio/portfolio-video-editing.webp` | Clearly labeled video editing sample poster | 1200 × 700 px | WebP, PNG, JPEG |
+| `portfolio/portfolio-digital-marketing.webp` | Clearly labeled marketing concept sample | 1200 × 700 px | WebP, PNG, JPEG |
+| `videos/video-editing-preview.mp4` | Muted, lazy, viewport-triggered motion preview; poster fallback is the service/portfolio image | 960 × 540 px, 3 seconds | MP4 (H.264) |
+| `backgrounds/site-background.webp` | Site background texture | 1200 × 700 px | WebP, PNG, JPEG |
+| `icons/brand-mark.svg` | Compact JA brand mark | 128 × 128 viewBox | SVG |
+| `mockups/desktop-preview.webp` | Desktop mockup support artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `mockups/mobile-preview.webp` | Mobile mockup support artwork | 1200 × 700 px | WebP, PNG, JPEG |
+| `animations/feature-motion.webp` | Motion feature artwork and poster | 1200 × 700 px | WebP, PNG, JPEG |
 
-- `public/assets/founders/junaid-ali.webp`
-- `public/assets/founders/umer.webp`
-- `public/assets/founders/muzammil.webp`
+Generated founder illustrations are abstract placeholders, not portraits. Portfolio concept/sample assets are demonstrations rather than completed client work. The Ahmed Engineering page itself is shown in a live embedded preview when the remote site permits framing, and can also be opened directly.
 
-These are abstract placeholder visuals built to match the premium dark brand aesthetic. Replace them with new files using the same filenames when actual founder portraits are available.
+## Replacing assets
 
-## Hero visuals
+1. Keep the path and filename from the inventory. Website code refers to these files through `src/config/assets.ts`; the favicon path is also declared in `index.html`.
+2. Keep the listed aspect ratio and use a supported format. Raster replacements can use WebP, PNG, or JPEG while retaining the `.webp` path only if the replacement is encoded as WebP. For SVG and GLB, retain their respective formats.
+3. Keep video muted/autoplay-friendly and provide the matching poster image; the UI falls back to the poster when motion is reduced, the video cannot play, or loading fails.
+4. Run `npm run assets:verify` to check manifest files, image decoding and dimensions, video decoding, and the GLB header.
+5. To regenerate the original local demonstration artwork, run `npm run assets:generate`. This overwrites generated assets and removes known legacy filenames.
 
-- `public/assets/hero/hero-background.webp`
-- `public/assets/hero/hero-object-01.webp`
-- `public/assets/hero/hero-object-02.webp`
-- `public/assets/hero/hero-object-03.webp`
-- `public/assets/hero/hero-texture.webp`
-
-Recommended image size: 1600x1000 px. Use these for background layers, lighting accents and floating 3D-style decorative surfaces.
-
-## Service imagery
-
-- `public/assets/services/web-development.webp`
-- `public/assets/services/app-development.webp`
-- `public/assets/services/graphic-design.webp`
-- `public/assets/services/video-editing.webp`
-- `public/assets/services/digital-marketing.webp`
-
-Recommended size: 1200x700 px. These provide clean visual references for each main service category.
-
-## Portfolio placeholders
-
-- `public/assets/portfolio/ahmed-engineering/preview.webp`
-- `public/assets/portfolio/mobile-app/preview.webp`
-- `public/assets/portfolio/graphic-design/preview.webp`
-- `public/assets/portfolio/video-editing/preview.webp`
-- `public/assets/portfolio/digital-marketing/preview.webp`
-
-Recommended size: 1400x900 px. These are used for portfolio previews and can be replaced without changing component logic.
-
-## Supporting visuals
-
-- `public/assets/backgrounds/site-bg.webp`
-- `public/assets/icons/brand-mark.webp`
-- `public/assets/mockups/desktop-preview.webp`
-- `public/assets/mockups/mobile-preview.webp`
-- `public/assets/animations/feature-motion.webp`
-
-These are supporting decorative and presentation visuals for the marketing sections and mockup layouts.
-
-## Central asset configuration
-
-All references are centralized in `src/config/assets.ts` so the website can automatically display replacements whenever the same filename is reused.
-
-To replace any asset:
-
-1. Prepare a new image in the same folder.
-2. Keep the same filename.
-3. Save it with a matching extension and similar aspect ratio.
-4. Refresh the page or rebuild the app to see the updated asset immediately.
-
-## Important notes
-
-- Do not remove or rename any file referenced by `src/config/assets.ts`.
-- Keep all replacement assets local to the project.
-- Avoid broken external image URLs or indirect dependencies.
-- If a real founder photo, service image or portfolio preview is added later, the same name should be retained so the app continues working without code changes.
-
-## Motion and performance
+## Motion implementation
 
 - `src/components/KineticText.tsx` provides word- and character-level masked headline reveals.
-- `src/components/Marquee.tsx` renders the continuous brand text strips.
-- `src/components/ServiceVisual.tsx` and `src/index.css` provide the five service-specific animated illustrations.
-- `src/components/HeroScene3D.tsx` contains the native Three.js hero composition. It is dynamically imported only on desktop, when near the viewport, and when reduced motion is not requested.
-- The 3D render loop pauses off-screen and when the browser tab is hidden. Mobile and reduced-motion visitors receive the lightweight CSS composition instead.
-- Framer Motion and CSS transitions power page changes, scroll reveals, portfolio filtering and accordions. No GSAP ScrollTrigger is needed for these layouts.
-
-Run `npm run assets:generate` to regenerate the local SVG-based preview assets.
+- `src/components/Marquee.tsx` renders continuous brand text strips.
+- `src/components/ServiceVisual.tsx` and `src/index.css` provide service-specific animated illustrations.
+- `src/components/VideoPreview.tsx` lazy-loads the local video near the viewport and keeps poster/reduced-motion fallbacks.
+- `src/components/HeroScene3D.tsx` contains the native Three.js hero composition. It is dynamically imported only on desktop, near the viewport, and when reduced motion is not requested.
+- The Three.js render loop pauses off-screen and when the browser tab is hidden. Mobile and reduced-motion visitors receive the lightweight CSS composition instead.
