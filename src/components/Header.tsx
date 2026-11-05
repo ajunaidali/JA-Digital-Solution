@@ -12,7 +12,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-[#05082F]/85 backdrop-blur-xl">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6 lg:px-8">
         <Link to="/" className="flex items-center gap-3" aria-label="JA Digital Solver home">
-          <img src={assets.branding.logoPrimarySvg} alt="JA Digital Solver temporary text logo" className="h-10 w-auto" />
+          <img src={assets.branding.logoPrimarySvg} alt="JA Digital Solver" className="h-10 w-auto" />
         </Link>
 
         <nav className="hidden items-center gap-1 rounded-full border border-white/10 bg-white/[0.035] p-1 md:flex">

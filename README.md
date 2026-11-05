@@ -20,4 +20,4 @@ The supplied logo PDF is retained as a reference, but it renders blank. The disp
 
 ## Contact form delivery
 
-The contact form is ready for live delivery integration. Add credentials to a local `.env` file using the keys in `.env.example` before connecting to Formspree or EmailJS.
+Set `VITE_FORMSPREE_ENDPOINT` in `.env` or your deployment environment to send inquiries through Formspree. Alternatively, set `VITE_CONTACT_EMAIL` to let visitors open a pre-filled email draft. The form reports an unavailable delivery setup rather than showing a false success when neither value is configured.

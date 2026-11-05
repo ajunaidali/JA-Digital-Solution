@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useRef, useState } from 'react';
 import { useReducedMotion } from 'framer-motion';
+import { assets } from '../config/assets';
 
 const HeroScene3D = lazy(() => import('./HeroScene3D'));
 
@@ -64,6 +65,7 @@ export default function HeroScene() {
 
   return (
     <div ref={containerRef} className="hero-scene-shell" aria-label="Abstract interactive 3D scene">
+      <img src={assets.hero.main} alt="" className="hero-scene-art" />
       <SceneFallback />
       {show3D && (
         <Suspense fallback={null}>

@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from 'react-router-dom';
 import AmbientCursor from './components/AmbientCursor';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import { assets } from './config/assets';
 import ContactPage from './pages/Contact';
 import FaqsPage from './pages/Faqs';
 import HomePage from './pages/Home';
@@ -34,7 +35,15 @@ export default function App() {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-[#05082F] text-white">
+    <div
+      className="min-h-screen bg-[#05082F] text-white"
+      style={{
+        backgroundImage: `linear-gradient(180deg, rgba(5, 8, 47, .92), rgba(5, 8, 47, .97)), url("${assets.backgrounds.site}")`,
+        backgroundPosition: 'center',
+        backgroundAttachment: 'fixed',
+        backgroundSize: 'cover',
+      }}
+    >
       <AmbientCursor />
       <Header />
       <main>

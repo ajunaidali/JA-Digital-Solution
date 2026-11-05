@@ -59,5 +59,5 @@ Generated founder illustrations are abstract placeholders, not portraits. Portfo
 - `src/components/Marquee.tsx` renders continuous brand text strips.
 - `src/components/ServiceVisual.tsx` and `src/index.css` provide service-specific animated illustrations.
 - `src/components/VideoPreview.tsx` lazy-loads the local video near the viewport and keeps poster/reduced-motion fallbacks.
-- `src/components/HeroScene3D.tsx` contains the native Three.js hero composition. It is dynamically imported only on desktop, near the viewport, and when reduced motion is not requested.
+- `src/components/HeroScene3D.tsx` loads the local GLB model, environment, and grid texture into the Three.js hero composition. It is dynamically imported only on desktop, near the viewport, and when reduced motion is not requested.
 - The Three.js render loop pauses off-screen and when the browser tab is hidden. Mobile and reduced-motion visitors receive the lightweight CSS composition instead.
