@@ -9,7 +9,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-[1.3fr_0.7fr_0.7fr_1fr]">
           <div>
-            <img src={assets.branding.logoPrimarySvg} alt="JA Digital Solver" className="h-12 w-auto" />
+            <img src={assets.branding.logoPrimarySvg} alt="UMJ Digital" className="h-12 w-auto" width="707" height="357" />
             <p className="mt-6 max-w-md text-sm leading-7 text-slate-300">
               Turning ideas into digital experiences with strategy, design, development and growth systems built for modern businesses.
             </p>
@@ -47,7 +47,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-12 flex flex-col gap-4 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex-row sm:items-center sm:justify-between">
-          <p>© 2025 JA Digital Solver. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} UMJ Digital. All rights reserved.</p>
           <p>Turning Ideas Into Digital Experiences.</p>
         </div>
       </div>

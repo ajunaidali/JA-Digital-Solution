@@ -1,63 +1,62 @@
-# JA Digital Solver Asset Guide
+# UMJ Digital Asset Guide
 
-All website media is stored locally under `public/assets/`. The component-facing paths are centralized in [`src/config/assets.ts`](./src/config/assets.ts); replace a file with the same filename and compatible format to update it without changing components.
+Website media is kept in `public/assets/`; runtime paths are centralized in [`src/config/assets.ts`](./src/config/assets.ts). Submitted source files remain untouched. Smaller web-ready derivatives are stored beside source images and video.
 
-The supplied `JA logo.pdf` is preserved as `branding/ja-logo-original.pdf`, but its page appears blank. The displayed `logo-primary` and `logo-light` files are temporary, text-based wordmarks, not extracted versions of the original logo.
+## Submitted asset review
 
-## Asset inventory
+The image folders were visually reviewed and image dimensions/formats checked. Founders use the submitted portraits. Service and portfolio pages use the matching submitted UI screenshots; the app screenshot is portrait, so it is shown contained instead of being cropped. The hero uses the submitted background artwork, related artwork collage, environment, grid, and animation.
 
-| File | Purpose and website location | Recommended replacement dimensions | Supported formats |
-|---|---|---:|---|
-| `branding/ja-logo-original.pdf` | Supplied reference logo; not displayed | Original PDF | PDF |
-| `branding/logo-primary.svg` | Navbar and footer wordmark on dark backgrounds | 680 × 150 viewBox | SVG |
-| `branding/logo-light.svg` | Wordmark for light backgrounds | 680 × 150 viewBox | SVG |
-| `branding/logo-primary.png` | Raster dark-background wordmark | 1360 × 300 px | PNG, WebP |
-| `branding/logo-light.png` | Raster light-background wordmark | 1360 × 300 px | PNG, WebP |
-| `branding/favicon.png` | Browser tab icon (`index.html`) | 256 × 256 px | PNG |
-| `founders/founder-junaid.webp` | Junaid Ali founder profile visual | 700 × 820 px | WebP, PNG, JPEG |
-| `founders/founder-umer.webp` | Umer founder profile visual | 700 × 820 px | WebP, PNG, JPEG |
-| `founders/founder-muzammil.webp` | Muzammil founder profile visual | 700 × 820 px | WebP, PNG, JPEG |
-| `hero/hero-main.webp` | Main hero artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `hero/hero-object-01.webp` | Hero strategy / floating object layer | 1200 × 700 px | WebP, PNG, JPEG |
-| `hero/hero-object-02.webp` | Hero product / floating object layer | 1200 × 700 px | WebP, PNG, JPEG |
-| `hero/hero-object-03.webp` | Hero launch / floating object layer | 1200 × 700 px | WebP, PNG, JPEG |
-| `hero/hero-texture.webp` | Hero texture and lighting layer | 1200 × 700 px | WebP, PNG, JPEG |
-| `3d/models/hero-objects.glb` | Local 3D hero geometry | Keep scene scale and origin compatible | GLB |
-| `3d/textures/cyan-grid.webp` | Three-dimensional scene surface texture | 1200 × 700 px | WebP, PNG, JPEG |
-| `3d/environments/hero-environment.webp` | Three-dimensional scene environment artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `services/service-web-development.webp` | Web development service artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `services/service-app-development.webp` | App development service artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `services/service-ui-ux-design.webp` | UI/UX service artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `services/service-graphic-design.webp` | Graphic design and branding artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `services/service-video-editing.webp` | Video editing poster and fallback | 1200 × 700 px | WebP, PNG, JPEG |
-| `services/service-digital-marketing.webp` | Digital marketing service artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `portfolio/portfolio-ahmed-engineering.webp` | Ahmed Engineering project card and mobile preview fallback | 1200 × 700 px | WebP, PNG, JPEG |
-| `portfolio/portfolio-mobile-app.webp` | Clearly labeled mobile app concept sample | 1200 × 700 px | WebP, PNG, JPEG |
-| `portfolio/portfolio-graphic-design.webp` | Clearly labeled branding concept sample | 1200 × 700 px | WebP, PNG, JPEG |
-| `portfolio/portfolio-video-editing.webp` | Clearly labeled video editing sample poster | 1200 × 700 px | WebP, PNG, JPEG |
-| `portfolio/portfolio-digital-marketing.webp` | Clearly labeled marketing concept sample | 1200 × 700 px | WebP, PNG, JPEG |
-| `videos/video-editing-preview.mp4` | Muted, lazy, viewport-triggered motion preview; poster fallback is the service/portfolio image | 960 × 540 px, 3 seconds | MP4 (H.264) |
-| `backgrounds/site-background.webp` | Site background texture | 1200 × 700 px | WebP, PNG, JPEG |
-| `icons/brand-mark.svg` | Compact JA brand mark | 128 × 128 viewBox | SVG |
-| `mockups/desktop-preview.webp` | Desktop mockup support artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `mockups/mobile-preview.webp` | Mobile mockup support artwork | 1200 × 700 px | WebP, PNG, JPEG |
-| `animations/feature-motion.webp` | Motion feature artwork and poster | 1200 × 700 px | WebP, PNG, JPEG |
+| Asset | Actual content and use | Dimensions / details |
+|---|---|---:|
+| `branding/logo-primary.svg` | Submitted UMJ Digital logo; header and footer | 707 × 357 |
+| `branding/logo-primary.png` | Submitted raster UMJ logo; retained source | 707 × 357 |
+| `branding/favicon.png` | Submitted UMJ mark | 525 × 252 |
+| `branding/favicon-square.png` | Square browser icon derived from the submitted favicon | 256 × 256 |
+| `founders/founder-junaid.webp` | Junaid Ali portrait | 896 × 1200 |
+| `founders/founder-umer.webp` | Umer portrait | 1086 × 1448 |
+| `founders/founder-muzammil.webp` | Muzammil portrait | 848 × 1264 |
+| `hero/hero-main.webp` | Homepage hero artwork | 1332 × 712 |
+| `hero/hero-object-01.webp` | Strategy / interface artwork in the homepage collage | 1296 × 705 |
+| `hero/hero-object-02.webp` | Digital product artwork in the homepage story | 1300 × 708 |
+| `hero/hero-object-03.webp` | Growth artwork in the homepage collage | 1392 × 720 |
+| `hero/hero-texture.webp` | Subtle hero-scene overlay | 1370 × 716 |
+| `3d/models/hero-objects.json` | **Lottie 2D vector animation, not a 3D model**; rendered with `lottie-web` | 1203 × 756; 42 layers; 24 fps; 7 seconds |
+| `3d/environments/hero-environment.webp` | Three.js environment/reflection texture | 1406 × 741 |
+| `3d/textures/cyan-grid.webp` | Grid plane texture in the Three.js hero | 1512 × 766 |
+| `services/service-web-development.webp` | Website development service visual | 1882 × 897 |
+| `services/service-app-development.webp` | Portrait mobile app screenshot; displayed with `object-fit: contain` | 714 × 1599 |
+| `services/service-ui-ux-design.webp` | UI/UX service visual | 835 × 467 |
+| `services/service-graphic-design.webp` | Graphic design service visual | 886 × 391 |
+| `services/service-video-editing.webp` | Video-editing software screenshot | 1408 × 768 |
+| `services/service-digital-marketing.webp` | Marketing analytics screenshot | 958 × 555 |
+| `portfolio/portfolio-ahmed-engineering.webp` | Ahmed Engineering project preview | 1882 × 897 |
+| `portfolio/portfolio-mobile-app.webp` | Portrait CarApp screen; displayed without cropping | 714 × 1599 |
+| `portfolio/portfolio-graphic-design.webp` | Graphic-design project visual | 886 × 391 |
+| `portfolio/portfolio-video-editing.webp` | Video-editing project visual | 1408 × 768 |
+| `portfolio/portfolio-digital-marketing.webp` | Marketing project visual | 958 × 555 |
+| `videos/video-editing-preview.mp4` | Submitted original video; retained unchanged | 1918 × 954; 6.6 sec; 6.68 MB |
+| `videos/video-editing-preview-optimized.mp4` | Lazy-loaded web preview derivative | 960 × 478; 6.6 sec; 118 KB |
+| `backgrounds/site-background.webp` | Submitted original site background; retained unchanged | 1382 × 751; 279 KB |
+| `backgrounds/site-background-optimized.webp` | Site background used by the app | 1200 × 652; 36 KB |
+| `animations/feature-motion.webp` | Motion artwork in the homepage visual collage | 1200 × 700 |
+| `branding/ja-logo-original.pdf` | Original JA logo PDF kept as a reference; not the active UMJ mark | PDF |
 
-Generated founder illustrations are abstract placeholders, not portraits. Portfolio concept/sample assets are demonstrations rather than completed client work. The Ahmed Engineering page itself is shown in a live embedded preview when the remote site permits framing, and can also be opened directly.
+## File notes
 
-## Replacing assets
+- The three service/portfolio pairs for graphic design, video editing, and digital marketing are byte-identical submitted screenshots, intentionally reused in both sections.
+- `mockups/desktop-preview.webp` and `mockups/mobile-preview.webp` are identical legacy files and are not used.
+- `branding/logo-light.svg`, `branding/logo-light.png`, and `icons/brand-mark.svg` are legacy JA-branded files and are not used after the UMJ rebrand.
+- The original favicon and background are preserved; their square/compressed derivatives are the files used by the site.
+- Portfolio concepts/samples remain labelled as concepts/samples. The Ahmed Engineering page is an existing live project preview and may be blocked from embedding by the remote host.
 
-1. Keep the path and filename from the inventory. Website code refers to these files through `src/config/assets.ts`; the favicon path is also declared in `index.html`.
-2. Keep the listed aspect ratio and use a supported format. Raster replacements can use WebP, PNG, or JPEG while retaining the `.webp` path only if the replacement is encoded as WebP. For SVG and GLB, retain their respective formats.
-3. Keep video muted/autoplay-friendly and provide the matching poster image; the UI falls back to the poster when motion is reduced, the video cannot play, or loading fails.
-4. Run `npm run assets:verify` to check manifest files, image decoding and dimensions, video decoding, and the GLB header.
-5. To regenerate the original local demonstration artwork, run `npm run assets:generate`. This overwrites generated assets and removes known legacy filenames.
+## Performance and motion
 
-## Motion implementation
+- `src/components/HeroAnimation.tsx` lazy-loads the submitted Lottie JSON only when the hero nears the viewport, pauses it while hidden, and shows its first frame when reduced motion is requested.
+- `src/components/HeroScene3D.tsx` creates the interactive Three.js geometry and loads the submitted environment and grid texture. It is dynamically imported only on desktop, near the viewport, and when reduced motion is not requested; it pauses off-screen and when the browser tab is hidden.
+- The submitted JSON is a 2D Bodymovin/Lottie animation (`ddd: 0`); it is intentionally not passed to a GLB/GLTF loader.
+- `src/components/VideoPreview.tsx` loads the compressed MP4 only near the viewport, uses the matching poster, and does not autoplay when reduced motion is enabled.
+- Main and below-the-fold images use eager/high priority only for the hero, and lazy loading for content further down the page. App-screen previews use `object-fit: contain` to preserve their content.
 
-- `src/components/KineticText.tsx` provides word- and character-level masked headline reveals.
-- `src/components/Marquee.tsx` renders continuous brand text strips.
-- `src/components/ServiceVisual.tsx` and `src/index.css` provide service-specific animated illustrations.
-- `src/components/VideoPreview.tsx` lazy-loads the local video near the viewport and keeps poster/reduced-motion fallbacks.
-- `src/components/HeroScene3D.tsx` loads the local GLB model, environment, and grid texture into the Three.js hero composition. It is dynamically imported only on desktop, near the viewport, and when reduced motion is not requested.
-- The Three.js render loop pauses off-screen and when the browser tab is hidden. Mobile and reduced-motion visitors receive the lightweight CSS composition instead.
+## Validation and replacement
+
+Run `npm run assets:verify` to validate manifest paths, image dimensions, video decoding, and Lottie JSON structure. Do not run `npm run assets:generate` on the submitted assets: the generator now requires the explicit `--overwrite-existing-assets` flag because it replaces website artwork with demos.

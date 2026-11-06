@@ -1,4 +1,4 @@
-# JA Digital Solver — Asset Request List
+# UMJ Digital — Asset Request List
 
 Yeh list batati hai ke website ke liye kis type ki pictures chahiye. Har prompt ko AI image generator ya stock-image search mein use kar sakte hain. Prompts English mein hain kyun ke image generators aam tor par English prompts behtar samajhte hain.
 
@@ -13,11 +13,11 @@ Yeh list batati hai ke website ke liye kis type ki pictures chahiye. Har prompt 
 
 ## Sab se pehle bhejne ke liye
 
-### 1. Asli JA Digital Solver logo
+### 1. Asli UMJ Digital logo
 
 - **File:** `public/assets/branding/logo-primary.svg`
 - **Format:** Transparent SVG behtareen; warna high-resolution transparent PNG.
-- **Kya chahiye:** Aap ka asli approved logo/wordmark. AI se logo banwana zaroori nahi—original logo file bhej dein.
+- **Kya chahiye:** UMJ Digital ka approved logo/wordmark. Current submitted UMJ logo website par use ho raha hai. AI se logo banwana zaroori nahi—updated brand file ho to original vector bhej dein.
 
 ### 2. Founders ki asli photos
 
@@ -123,14 +123,11 @@ Yeh existing abstract artwork ko aap ke brand ke mutabiq upgrade karne ke liye o
 
 > Very subtle seamless dark navy website background texture, faint soft cyan light bloom near the corners, barely visible fine grain and delicate abstract grid, center kept dark and uncluttered for readable white text, understated premium technology studio aesthetic, no objects, no text, no logo, no watermark, landscape 1200x700.
 
-## Optional custom 3D assets
+## Submitted motion aur 3D files
 
-Website mein filhaal 3D assets maujood hain; inhein bhejna zaroori nahi. Agar aap apna custom 3D look chahte hain:
-
-- `public/assets/3d/models/hero-objects.glb` — optimized `.glb` model, center/origin ke qareeb, website hero ke liye suitable scale.
-- `public/assets/3d/environments/hero-environment.webp` — 1200 × 700 px environment artwork.
-- `public/assets/3d/textures/cyan-grid.webp` — 1200 × 700 px subtle cyan grid texture.
-- Model ko low-poly / web-optimized rakhein; unnecessary huge textures ya bohat zyada polygons se loading slow hogi.
+- `public/assets/3d/models/hero-objects.json` ek 2D Lottie animation hai, 3D model nahi. Website ise Lottie player se render karti hai.
+- `public/assets/3d/environments/hero-environment.webp` aur `public/assets/3d/textures/cyan-grid.webp` actual Three.js scene mein use hote hain.
+- Agar future mein real custom 3D model bhejna ho to optimized `.glb` file provide karein; usay existing JSON ke upar copy/rename na karein.
 
 ## Files dene se pehle checklist
 

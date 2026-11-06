@@ -8,7 +8,6 @@ import MagneticLink from '../components/MagneticLink';
 import Marquee from '../components/Marquee';
 import ScrollReveal from '../components/ScrollReveal';
 import SectionTitle from '../components/SectionTitle';
-import ServiceVisual from '../components/ServiceVisual';
 import { assets } from '../config/assets';
 import { featuredProjects, founders, processSteps, services, trustStats, whyChooseUs } from '../data/siteData';
 
@@ -48,11 +47,18 @@ function StorySection() {
             alt="Abstract visual representing digital ideas taking shape"
             className="h-[420px] w-full object-cover md:h-[600px]"
             loading="lazy"
+            width="1300"
+            height="708"
           />
+          <div className="story-art-collage" aria-hidden="true">
+            <img src={assets.hero.object1} alt="" width="1296" height="705" loading="lazy" />
+            <img src={assets.animations.featureMotion} alt="" width="1200" height="700" loading="lazy" />
+            <img src={assets.hero.object3} alt="" width="1392" height="720" loading="lazy" />
+          </div>
           <div className="story-art-overlay" />
           <div className="absolute inset-x-6 bottom-6 flex items-end justify-between gap-6 md:inset-x-10 md:bottom-10">
             <p className="max-w-sm text-2xl font-medium leading-tight tracking-tight text-white md:text-4xl">Different disciplines.<br />One connected vision.</p>
-            <span className="shrink-0 text-xs uppercase tracking-[0.26em] text-cyan-200">JDS / 2025</span>
+            <span className="shrink-0 text-xs uppercase tracking-[0.26em] text-cyan-200">UMJ / DIGITAL</span>
           </div>
         </motion.div>
       </div>
@@ -90,7 +96,7 @@ export default function HomePage() {
                   </MagneticLink>
                 </div>
                 <div className="mt-9 flex flex-wrap gap-x-5 gap-y-3 text-xs uppercase tracking-[0.12em] text-slate-300">
-                  {['Web development', 'Mobile apps', 'Brand & content', 'Digital marketing'].map((item) => (
+                  {['Web development', 'Mobile apps', 'UI/UX design', 'Brand & content', 'Digital marketing'].map((item) => (
                     <span key={item} className="inline-flex items-center gap-2"><BadgeCheck size={14} className="text-cyan-300" />{item}</span>
                   ))}
                 </div>
@@ -104,7 +110,7 @@ export default function HomePage() {
           <div className="mt-10 flex items-center justify-between border-t border-white/10 py-5 text-[10px] uppercase tracking-[0.3em] text-slate-400">
             <span>Strategy / Design / Development</span>
             <span className="hidden items-center gap-2 sm:inline-flex"><ArrowDownRight size={14} className="text-cyan-300" /> Scroll to explore</span>
-            <span>01 — 05</span>
+            <span>01 — {String(services.length).padStart(2, '0')}</span>
           </div>
         </div>
       </section>
@@ -136,16 +142,16 @@ export default function HomePage() {
           </ScrollReveal>
           <ScrollReveal delay={0.12} direction="right">
             <p className="max-w-lg pb-1 text-base leading-8 text-slate-300">
-              Five focused disciplines. Each has its own craft, and every one connects back to the same bigger picture: a better digital experience.
+              Six focused disciplines. Each has its own craft, and every one connects back to the same bigger picture: a better digital experience.
             </p>
           </ScrollReveal>
         </div>
-        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-5">
+        <div className="mt-12 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
           {services.map(({ title, summary, image, icon: Icon }, index) => (
             <ScrollReveal key={title} delay={index * 0.045}>
               <Link to="/services" className="service-tile group block overflow-hidden border border-white/10 bg-[#071126] transition duration-500 hover:-translate-y-1 hover:border-cyan-200/50">
                 <div className="service-tile-image relative">
-                  <img src={image} alt="" className="h-44 w-full object-cover transition duration-700 group-hover:scale-105" loading="lazy" />
+                  <img src={image} alt="" className={`h-44 w-full transition duration-700 group-hover:scale-105 ${title === 'App Development' ? 'bg-[#08152d] object-contain p-3' : 'object-cover'}`} loading="lazy" />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#071126] via-transparent to-transparent" />
                   <span className="absolute left-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/15 bg-[#05082F]/70 text-cyan-200 backdrop-blur"><Icon size={16} /></span>
                   <span className="absolute bottom-4 right-4 text-[10px] tracking-[0.2em] text-slate-300">0{index + 1}</span>
@@ -173,7 +179,7 @@ export default function HomePage() {
             <ScrollReveal key={project.title} delay={index * 0.07} direction={index % 2 ? 'right' : 'left'} className={index === 0 ? 'md:col-span-2' : ''}>
               <Link to="/portfolio" className={`project-card group block ${index === 0 ? 'grid items-end gap-6 md:grid-cols-[1.35fr_0.65fr]' : ''}`}>
                 <div className="project-preview overflow-hidden border border-white/10 bg-[#0a1430]">
-                  <img src={project.image} alt={project.title} className={`h-full w-full object-cover transition duration-700 group-hover:scale-[1.035] ${index === 0 ? 'aspect-[1.8/1]' : 'aspect-[1.2/1]'}`} loading="lazy" />
+                  <img src={project.image} alt={project.title} className={`h-full w-full transition duration-700 group-hover:scale-[1.035] ${project.title === 'Mobile Application Design' ? 'bg-[#08152d] object-contain p-5' : 'object-cover'} ${index === 0 ? 'aspect-[1.8/1]' : 'aspect-[1.2/1]'}`} loading="lazy" />
                   <span className="project-preview-arrow"><MoveUpRight size={18} /></span>
                 </div>
                 <div className="project-caption flex items-start justify-between gap-4 pt-4 md:pt-5">
@@ -194,7 +200,7 @@ export default function HomePage() {
       <section className="mx-auto mt-20 max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 rounded-[2rem] border border-white/10 bg-[linear-gradient(115deg,rgba(9,19,44,0.94),rgba(7,11,30,0.82))] p-7 md:p-12 lg:grid-cols-[0.8fr_1.2fr]">
           <ScrollReveal>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">Why JA Digital Solver</p>
+            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">Why UMJ Digital</p>
             <h2 className="text-4xl font-semibold leading-[1.04] tracking-[-0.05em] text-white md:text-5xl">
               <KineticText text="Clear thinking. Careful making." />
             </h2>
@@ -248,7 +254,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-3xl text-center">
             <p className="mb-4 text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">The people behind the work</p>
             <h2 className="text-4xl font-semibold tracking-[-0.05em] text-white md:text-6xl">
-              <KineticText text="Meet The Minds Behind JA Digital Solver" />
+              <KineticText text="Meet The Minds Behind UMJ Digital" />
             </h2>
             <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-slate-300">
               Three co-founders. Different expertise. One shared vision — building meaningful digital experiences for businesses.

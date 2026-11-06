@@ -31,17 +31,28 @@ for (const assetPath of assetPaths) {
     throw new Error(`Manifest asset is missing: public/assets/${assetPath}`);
   }
 
-  if (/\.(png|webp|jpe?g)$/i.test(filePath)) {
+  if (/\.(png|webp|jpe?g|avif)$/i.test(filePath)) {
     const metadata = await sharp(filePath).metadata();
     if (!metadata.width || !metadata.height) throw new Error(`Image has invalid dimensions: ${assetPath}`);
+    if (assetPath.endsWith('branding/favicon-square.png') && (metadata.width !== metadata.height || metadata.width < 128)) {
+      throw new Error(`Square favicon dimensions are invalid: ${assetPath}`);
+    }
   } else if (/\.(mp4|webm)$/i.test(filePath)) {
     await execFileAsync(ffmpegPath, [
       '-hide_banner', '-loglevel', 'error', '-i', filePath, '-f', 'null', '-',
     ], { windowsHide: true });
-  } else if (/\.glb$/i.test(filePath)) {
-    const buffer = fs.readFileSync(filePath);
-    if (buffer.length < 20 || buffer.toString('ascii', 0, 4) !== 'glTF' || buffer.readUInt32LE(4) !== 2 || buffer.readUInt32LE(8) !== buffer.length) {
-      throw new Error(`GLB header or length is invalid: ${assetPath}`);
+  } else if (/\.json$/i.test(filePath)) {
+    const animation = JSON.parse(fs.readFileSync(filePath, 'utf8'));
+    if (
+      typeof animation.v !== 'string'
+      || !Number.isFinite(animation.fr) || animation.fr <= 0
+      || !Number.isFinite(animation.ip)
+      || !Number.isFinite(animation.op) || animation.op <= animation.ip
+      || !Number.isFinite(animation.w) || animation.w <= 0
+      || !Number.isFinite(animation.h) || animation.h <= 0
+      || !Array.isArray(animation.layers)
+    ) {
+      throw new Error(`Lottie animation structure is invalid: ${assetPath}`);
     }
   } else if (/\.pdf$/i.test(filePath)) {
     if (fs.readFileSync(filePath).subarray(0, 5).toString('ascii') !== '%PDF-') {
@@ -52,4 +63,7 @@ for (const assetPath of assetPaths) {
   }
 }
 
-console.log(`Verified ${assetPaths.length} manifest assets, required asset directories, image dimensions, video decoding, and GLB structure.`);
+const lottiePath = assetPaths.find((assetPath) => /\.json$/i.test(assetPath));
+const lottie = lottiePath ? JSON.parse(fs.readFileSync(path.join(assetsRoot, lottiePath), 'utf8')) : null;
+const lottieSummary = lottie ? ` Lottie animation: ${lottie.layers.length} layers, ${((lottie.op - lottie.ip) / lottie.fr).toFixed(1)} seconds.` : '';
+console.log(`Verified ${assetPaths.length} manifest assets, required asset directories, image dimensions, video decoding, and JSON animation structure.${lottieSummary}`);

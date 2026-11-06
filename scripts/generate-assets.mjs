@@ -21,6 +21,10 @@ const mockupDir = path.join(assetsRoot, 'mockups');
 const iconDir = path.join(assetsRoot, 'icons');
 const animationDir = path.join(assetsRoot, 'animations');
 
+if (!process.argv.includes('--overwrite-existing-assets')) {
+  throw new Error('This generator overwrites submitted assets. To explicitly restore demo assets, rerun with --overwrite-existing-assets.');
+}
+
 const ensureDir = (dir) => fs.mkdirSync(dir, { recursive: true });
 const svgToWebp = async (svg, filePath) => {
   await sharp(Buffer.from(svg)).webp({ quality: 90 }).toFile(filePath);

@@ -3,13 +3,14 @@ import { useReducedMotion } from 'framer-motion';
 import { assets } from '../config/assets';
 
 const HeroScene3D = lazy(() => import('./HeroScene3D'));
+const HeroAnimation = lazy(() => import('./HeroAnimation'));
 
 function SceneFallback() {
   return (
     <div className="hero-graphic-fallback" aria-hidden="true">
       <div className="hero-fallback-orbit hero-fallback-orbit-one" />
       <div className="hero-fallback-orbit hero-fallback-orbit-two" />
-      <div className="hero-fallback-core"><span>JA</span></div>
+      <div className="hero-fallback-core"><span>UMJ</span></div>
       <div className="hero-fallback-shard hero-fallback-shard-one" />
       <div className="hero-fallback-shard hero-fallback-shard-two" />
       <div className="hero-fallback-caption">CREATIVE SYSTEMS / 01</div>
@@ -64,9 +65,15 @@ export default function HeroScene() {
   const show3D = isDesktop && !reduceMotion && isNearViewport;
 
   return (
-    <div ref={containerRef} className="hero-scene-shell" aria-label="Abstract interactive 3D scene">
-      <img src={assets.hero.main} alt="" className="hero-scene-art" />
+    <div ref={containerRef} className="hero-scene-shell" role="img" aria-label="Animated UMJ Digital hero artwork">
+      <img src={assets.hero.main} alt="" className="hero-scene-art" width="1332" height="712" fetchPriority="high" />
+      <img src={assets.hero.texture} alt="" className="hero-scene-texture" width="1370" height="716" loading="lazy" decoding="async" />
       <SceneFallback />
+      {isNearViewport && (
+        <Suspense fallback={null}>
+          <HeroAnimation active={isVisible && isDocumentVisible} motionAllowed={!reduceMotion} />
+        </Suspense>
+      )}
       {show3D && (
         <Suspense fallback={null}>
           <HeroScene3D active={isVisible && isDocumentVisible} />

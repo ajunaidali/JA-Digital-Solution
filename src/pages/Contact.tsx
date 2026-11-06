@@ -3,6 +3,7 @@ import type { FormEvent } from 'react';
 import { Check, LoaderCircle, Mail, MessageSquareText, Send } from 'lucide-react';
 import SectionTitle from '../components/SectionTitle';
 import { contactDeliveryConfig } from '../config/contact';
+import { services } from '../data/siteData';
 
 type FormState = {
   fullName: string;
@@ -96,7 +97,7 @@ export default function ContactPage() {
         description="Share a few details and we will review your goals, scope and the best next steps for your project."
       />
 
-      <div className="mt-12 grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+      <div className="mt-12 grid grid-cols-1 gap-8 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="rounded-[2rem] border border-white/10 bg-white/[0.03] p-6 md:p-8">
           <h3 className="text-2xl font-semibold text-white">Start a conversation</h3>
           <p className="mt-3 text-sm leading-7 text-slate-300">Tell us what you are building, what you need, and how to reach you.</p>
@@ -147,11 +148,7 @@ export default function ContactPage() {
             <label className="space-y-2 text-sm text-slate-200">
               <span>Service *</span>
               <select value={form.service} onChange={(e) => handleChange('service', e.target.value)} className="w-full rounded-xl border border-white/10 bg-[#0b1127] px-4 py-3 text-white outline-none focus:border-cyan-400">
-                <option>Web Development</option>
-                <option>App Development</option>
-                <option>Graphic Design & Branding</option>
-                <option>Video Editing & Content Creation</option>
-                <option>Digital Marketing</option>
+                {services.map(({ title }) => <option key={title}>{title}</option>)}
               </select>
             </label>
 

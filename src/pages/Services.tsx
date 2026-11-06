@@ -5,7 +5,6 @@ import MagneticLink from '../components/MagneticLink';
 import Marquee from '../components/Marquee';
 import ScrollReveal from '../components/ScrollReveal';
 import SectionTitle from '../components/SectionTitle';
-import ServiceVisual from '../components/ServiceVisual';
 import { serviceHighlights, services } from '../data/siteData';
 
 export default function ServicesPage() {
@@ -15,7 +14,7 @@ export default function ServicesPage() {
     <div className="services-page mx-auto max-w-7xl px-4 pb-20 pt-12 sm:px-6 lg:px-8">
       <section className="service-page-intro grid items-end gap-8 pb-12 md:grid-cols-[1.15fr_0.85fr]">
         <ScrollReveal direction="left">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">Five disciplines / one vision</p>
+          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.34em] text-cyan-300">Six disciplines / one vision</p>
           <h1 className="max-w-4xl text-5xl font-semibold leading-[0.94] tracking-[-0.065em] text-white md:text-7xl">
             <KineticText text="Digital solutions made to move you forward." mode="characters" />
           </h1>
@@ -53,7 +52,7 @@ export default function ServicesPage() {
             title="Distinct crafts. Connected outcomes."
             description="Choose one focused capability or bring several together into a single, consistent digital experience."
           />
-          <span className="hidden pb-2 text-xs uppercase tracking-[0.24em] text-slate-500 md:block">01—05 / JA DIGITAL SOLVER</span>
+          <span className="hidden pb-2 text-xs uppercase tracking-[0.24em] text-slate-500 md:block">01—06 / UMJ DIGITAL</span>
         </div>
 
         <div className="space-y-5">
@@ -87,10 +86,15 @@ export default function ServicesPage() {
                 </MagneticLink>
               </div>
 
-              <div className="service-art-wrap relative min-h-[300px] overflow-hidden border border-white/10 bg-[#09152b] md:min-h-[420px]">
-                <img src={image} alt="" className="absolute inset-0 h-full w-full object-cover opacity-[0.12]" loading="lazy" />
-                <ServiceVisual index={index} title={title} />
-                <div className="pointer-events-none absolute bottom-4 right-5 z-10 text-[9px] uppercase tracking-[0.24em] text-white/55">JA DIGITAL SOLVER / 0{index + 1}</div>
+              <div className={`service-art-wrap service-art-wrap-${index + 1} relative min-h-[300px] overflow-hidden border border-white/10 bg-[#09152b] md:min-h-[420px]`}>
+                <img
+                  src={image}
+                  alt={`${title} visual`}
+                  className={`service-art-image absolute inset-0 h-full w-full ${title === 'App Development' ? 'object-contain p-5 md:p-8' : 'object-cover'}`}
+                  loading="lazy"
+                />
+                <div className="service-art-shade" aria-hidden="true" />
+                <div className="pointer-events-none absolute bottom-4 right-5 z-10 text-[9px] uppercase tracking-[0.24em] text-white/85">UMJ DIGITAL / 0{index + 1}</div>
               </div>
             </motion.article>
           ))}

@@ -29,7 +29,6 @@ import {
   WebGLRenderer,
   DodecahedronGeometry,
 } from 'three';
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import type { Material } from 'three';
 import { assets } from '../config/assets';
 
@@ -91,15 +90,10 @@ export default function HeroScene3D({ active }: HeroScene3DProps) {
 
     const composition = new Group();
     scene.add(composition);
-    const floatingObjects: Array<{ object: Object3D; y: number; speed: number; amplitude: number }> = [];
+    const floatingObjects: Array<{ object: Mesh; y: number; speed: number; amplitude: number }> = [];
     let disposed = false;
     let environmentTexture: Texture | null = null;
     let gridTexture: Texture | null = null;
-    const modelGroup = new Group();
-    modelGroup.scale.setScalar(0.82);
-    modelGroup.position.z = 0.4;
-    composition.add(modelGroup);
-    floatingObjects.push({ object: modelGroup, y: 0, speed: 0.48, amplitude: 0.035 });
 
     const textureLoader = new TextureLoader();
     textureLoader.load(
@@ -138,33 +132,6 @@ export default function HeroScene3D({ active }: HeroScene3DProps) {
       undefined,
       (error) => {
         if (!disposed) console.error('Unable to load the 3D hero grid texture.', error);
-      },
-    );
-    new GLTFLoader().load(
-      assets.threeD.heroModel,
-      (gltf) => {
-        if (disposed) {
-          disposeScene(gltf.scene);
-          return;
-        }
-        gltf.scene.traverse((object) => {
-          if (!(object instanceof Mesh)) return;
-          object.geometry.computeVertexNormals();
-          const materials = Array.isArray(object.material) ? object.material : [object.material];
-          materials.forEach((material) => {
-            if (material instanceof MeshStandardMaterial) {
-              material.envMapIntensity = 0.7;
-              material.roughness = 0.24;
-              if (gridTexture && object.geometry.getAttribute('uv')) material.map = gridTexture;
-              material.needsUpdate = true;
-            }
-          });
-        });
-        modelGroup.add(gltf.scene);
-      },
-      undefined,
-      (error) => {
-        if (!disposed) console.error('Unable to load the local 3D hero model.', error);
       },
     );
     const makeMaterial = (color: number, metalness: number, roughness: number, emissive = 0x000000) =>

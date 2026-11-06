@@ -42,6 +42,13 @@ export const services: Service[] = [
     icon: Smartphone,
   },
   {
+    title: 'UI/UX Design',
+    summary: 'Research-led product experiences that make digital services easier to understand, navigate and use.',
+    list: ['Product Discovery', 'UX Research', 'Wireframing', 'Interface Design', 'Prototyping', 'Design Systems'],
+    image: assets.services.uiUxDesign,
+    icon: Layers3,
+  },
+  {
     title: 'Graphic Design & Branding',
     summary: 'Identity systems and creative assets that bring structure, consistency and recognition to every touchpoint.',
     list: ['Logo Design', 'Brand Identity', 'Social Media Graphics', 'Marketing Creatives', 'Branding Materials'],
@@ -83,14 +90,14 @@ export const founders: Founder[] = [
     name: 'Junaid Ali',
     role: 'Co-Founder | Technology & Development',
     responsibilities: ['Web Development', 'Frontend Development', 'App Development', 'React Native', 'UI/UX Design', 'Technical Solutions', 'Project Development'],
-    bio: 'Junaid leads technology and development at JA Digital Solver, focusing on building modern websites, mobile applications and user-friendly digital experiences.',
+    bio: 'Junaid leads technology and development at UMJ Digital, focusing on building modern websites, mobile applications and user-friendly digital experiences.',
     image: assets.founders.junaid,
   },
   {
     name: 'Umer',
     role: 'Co-Founder | Marketing & Business Growth',
     responsibilities: ['Social Media Management', 'Marketing', 'Client Research', 'Market Research', 'Lead Generation', 'Client Outreach', 'Business Development'],
-    bio: 'Umer focuses on marketing, business growth and client acquisition at JA Digital Solver, researching potential clients and building meaningful business relationships.',
+    bio: 'Umer focuses on marketing, business growth and client acquisition at UMJ Digital, researching potential clients and building meaningful business relationships.',
     image: assets.founders.umer,
   },
   {
@@ -146,7 +153,7 @@ export const featuredProjects = [
 ];
 
 export const faqs = [
-  { question: 'What services does JA Digital Solver provide?', answer: 'We provide web development, app development, brand identity and graphic design, video editing and content production, and digital marketing strategy for business growth.' },
+  { question: 'What services does UMJ Digital provide?', answer: 'We provide web development, app development, UI/UX design, brand identity and graphic design, video editing and content production, and digital marketing strategy for business growth.' },
   { question: 'Do you provide quotations before starting a project?', answer: 'Yes. We review project scope, deliverables and timeline before preparing a quote tailored to the exact needs of the brief.' },
   { question: 'How long does a typical project take?', answer: 'Project timelines depend on complexity and the size of the scope. Simpler websites may take a few weeks, while larger systems require a longer roadmap.' },
   { question: 'How many revision rounds are included?', answer: 'We establish a defined revision structure during onboarding so the project remains efficient while preserving room for meaningful feedback.' },
@@ -157,7 +164,7 @@ export const faqs = [
 ];
 
 export const trustStats = [
-  { label: 'Services', value: '05' },
+  { label: 'Services', value: '06' },
   { label: 'Core Focus', value: 'Brand + Growth' },
   { label: 'Approach', value: 'Strategy-first' },
   { label: 'Delivery', value: 'Global' },

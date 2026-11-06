@@ -5,10 +5,9 @@ export const assets = {
   branding: {
     originalPdf: asset('branding/ja-logo-original.pdf'),
     logoPrimarySvg: asset('branding/logo-primary.svg'),
-    logoLightSvg: asset('branding/logo-light.svg'),
     logoPrimaryPng: asset('branding/logo-primary.png'),
-    logoLightPng: asset('branding/logo-light.png'),
-    favicon: asset('branding/favicon.png'),
+    favicon: asset('branding/favicon-square.png'),
+    faviconSource: asset('branding/favicon.png'),
   },
   founders: {
     junaid: asset('founders/founder-junaid.webp'),
@@ -23,7 +22,6 @@ export const assets = {
     texture: asset('hero/hero-texture.webp'),
   },
   threeD: {
-    heroModel: asset('3d/models/hero-objects.glb'),
     cyanGridTexture: asset('3d/textures/cyan-grid.webp'),
     heroEnvironment: asset('3d/environments/hero-environment.webp'),
   },
@@ -43,19 +41,15 @@ export const assets = {
     digitalMarketing: asset('portfolio/portfolio-digital-marketing.webp'),
   },
   videos: {
-    videoEditingPreview: asset('videos/video-editing-preview.mp4'),
-  },
-  backgrounds: {
-    site: asset('backgrounds/site-background.webp'),
+    videoEditingPreview: asset('videos/video-editing-preview-optimized.mp4'),
+    videoEditingOriginal: asset('videos/video-editing-preview.mp4'),
   },
   animations: {
     featureMotion: asset('animations/feature-motion.webp'),
+    heroLottieJson: asset('3d/models/hero-objects.json'),
   },
-  mockups: {
-    desktop: asset('mockups/desktop-preview.webp'),
-    mobile: asset('mockups/mobile-preview.webp'),
-  },
-  icons: {
-    brand: asset('icons/brand-mark.svg'),
+  backgrounds: {
+    site: asset('backgrounds/site-background-optimized.webp'),
+    siteOriginal: asset('backgrounds/site-background.webp'),
   },
 } as const;

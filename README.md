@@ -1,6 +1,6 @@
-# JA Digital Solver
+# UMJ Digital
 
-A React, TypeScript, and Vite website for JA Digital Solver, with locally stored demonstration assets and a reduced-motion-aware animation system.
+A React, TypeScript, and Vite website for UMJ Digital, using submitted local media, a lazy-loaded Lottie hero animation, and a reduced-motion-aware animation system.
 
 ## Run locally
 
@@ -11,12 +11,12 @@ A React, TypeScript, and Vite website for JA Digital Solver, with locally stored
 
 ## Assets
 
-Website media is stored in `public/assets/` and documented in [ASSET-GUIDE.md](./ASSET-GUIDE.md). Replace a file while retaining its filename, format, and approximate aspect ratio to update it without changing components.
+Website media is stored in `public/assets/` and documented in [ASSET-GUIDE.md](./ASSET-GUIDE.md). The submitted hero JSON is a 2D Lottie animation, not a 3D model; the website renders it with the Lottie player while a separate lazy-loaded Three.js scene supplies interactive 3D geometry.
 
-- `npm run assets:verify` checks manifest paths, image dimensions, video decoding, and the GLB header.
-- `npm run assets:generate` regenerates the local SVG-based demonstration artwork and motion preview. This overwrites generated assets.
+- `npm run assets:verify` checks manifest paths, image dimensions, video decoding, and the Lottie JSON structure.
+- Do not run `npm run assets:generate` on submitted artwork. It now exits by default; `npm run assets:generate -- --overwrite-existing-assets` explicitly overwrites the submitted media with demo assets.
 
-The supplied logo PDF is retained as a reference, but it renders blank. The displayed text-based logo is temporary and replaceable.
+The submitted UMJ Digital logo is used in the header and footer. Original submitted assets are preserved; optimized favicon, background, and video derivatives are stored alongside their originals.
 
 ## Contact form delivery
 

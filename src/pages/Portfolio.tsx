@@ -60,7 +60,7 @@ export default function PortfolioPage() {
             </button>
           ))}
         </div>
-        <span className="text-[10px] uppercase tracking-[0.25em] text-slate-500">{filteredProjects.length} projects / JA DIGITAL SOLVER</span>
+        <span className="text-[10px] uppercase tracking-[0.25em] text-slate-500">{filteredProjects.length} projects / UMJ DIGITAL</span>
       </div>
 
       <AnimatePresence mode="popLayout" initial={false}>
@@ -150,7 +150,7 @@ export default function PortfolioPage() {
                 {project.category === 'Content Production' ? (
                   <VideoPreview poster={project.image} label={`${project.title} animated sample preview`} className="aspect-[1.48/1] w-full transition duration-700 group-hover:scale-[1.04]" />
                 ) : (
-                  <img src={project.image} alt={project.title} className="aspect-[1.48/1] w-full object-cover transition duration-700 group-hover:scale-[1.04]" loading="lazy" />
+                  <img src={project.image} alt={project.title} className={`aspect-[1.48/1] w-full transition duration-700 group-hover:scale-[1.04] ${project.title === 'Mobile Application Design' ? 'bg-[#08152d] object-contain p-6' : 'object-cover'}`} loading="lazy" />
                 )}
                 <span className="portfolio-project-index">0{index + 1} / 05</span>
                 <span className="portfolio-project-arrow"><MoveUpRight size={17} /></span>
